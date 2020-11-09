@@ -1,0 +1,130 @@
+It uses  MRI as interpreter
+
+Incremental Garbage collection - 
+  in short bursts more frequently
+
+Heap compaction - using two fingers approach.
+
+Webpack, on the other hand, fully embraces the concept of JavaScript modules. It integrates with Babel, PostCSS, and just about any recent web framework. It supports a number of module syntaxes, including dynamic imports for code splitting.
+There are a wide variety of configurable source map options. Top to bottom, the webpack compilation process is extremely modular and customizable.
+
+
+I want to use a proper JavaScript module system to manage dependencies,
+I want to take advantage of the cutting edge features from ES6+, Babel,
+I want intelligent code-splitting features such as dynamic imports and webpack's splitChunks optimization
+
+https://rossta.net/blog/why-does-rails-install-both-webpacker-and-sprockets.html
+
+joins - inner join
+includes - left outer join
+
+
+
+
+
+Ruby/ Rails
+
+TDD - test cases, then code
+
+BDD - Testing behaviour of app from user perspective using Rspec and capybara.
+
+find raises Record::Not Found Exception if record is not there.
+find_by_id() will not
+find_by_id!() will as well
+
+
+send - It shows everything is an object. 
+to call private and protected method outside class
+Generally, private methods can’t be called with an explicit receiver. Receiver is always self.
+
+Protected methods can be invoked only by objects of the defining class and its subclasses
+
+PATCH method is the correct choice for partially updating an existing resource and PUT should only be used if you’re replacing a resource in its entirety.
+
+
+All are same
+ABC::new::xyz
+ABC::new.xyz
+ABC.new::xyz
+ABC.new.xyz
+
+dup is a shallow copy while clone is complete copy
+
+
+super - sends all arguments
+super() - no arguments
+
+
+fibo one liner
+
+f = lambda { |x| x < 2 ? x : f.call(x-1) + f.call(x-2) }
+n.times.each_with_object([0,1]) { |num, obj| obj << obj[-2] + obj[-1] }
+_______________________________________________________
+def fibonacci(n)
+   n <= 1 ? n :  fibonacci( n - 1 ) + fibonacci( n - 2 ) 
+end
+_______________________________________________________
+
+PHI = 1.6180339887498959
+TAU = 0.5004471413430931
+
+def fibonacci(n)
+  (PHI**n + TAU).to_i
+end
+
+
+
+postgre  indexing -
+
+B-tree, Hash, GiST and GI
+
+________________________________________________________
+
+Rails 6
+
+upsert_all and insert_all
+
+Switching Between Multiple Databases
+
+Action Mailbox -> You would need to configure your email service provider to post JSON data to your rails webhook when someone sends email to you.
+
+Zeitwerk - code loader
+  It is efficient, thread-safe, an
+
+Optimizer Hints
+
+Truncate Database
+
+Action Text - Trix Editor (we can put it in out view)
+
+Webpack as the Default Bundler (replacing rails asset pipeline)
+
+Host Authorization is a new middleware that guards against DNS rebinding attacks by explicitly permitting the hosts a request can be sent to.
+
+thwart attacks that attempt to copy the signed/encrypted value of a cookie and use it as the value of another cookie.  It does so by stashing the cookie name in the purpose field which is then signed/encrypted along with the cookie value
+
+_______________________________________________________________
+
+Ruby new features -
+
+endless range (1..)
+
+Merge Hash With Multiple Arguments
+a.merge(b, c)
+
+Control exception - 
+Integer("a", exception: false) #No error
+
+Random.bytes (faster than SecureRandom.bytes)
+
+Transient Heap
+performance improvement for short-lived objects that aims to reduce the problem of memory fragmentation & slow calls to malloc.
+
+Array#union & Array#difference
+
+Proc#call has been sped up.
+Improved performance of block.call
+
+unicode support
+
+
