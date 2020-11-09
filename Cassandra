@@ -1,0 +1,50 @@
+Read heavy No sql database- 
+
+rules:
+    maximize number of writes
+    maximize duplication
+
+strategy:
+    Simple strategy
+    Networktopology Strategy
+
+When write request comes, first it's logged in commit log. Data is written to Memtable.
+Memtable is temporary stored data in memory and commit log for backup and failure recovery purpose
+After Metable is full, data is flushed to SSTable.
+
+Keyspace - database
+
+Alter Keyspace
+DROP keyspace
+
+Before dropping the keyspace, Cassandra takes a snapshot of the keyspace.
+Drop keyspace and Delete keyspace are same.
+
+Single Primary Key
+    Primary key (C)
+        C is also called partioning key 
+
+Compound Primary Key
+    Primary key(C1, C2 . . .)
+        C1 is the partioning key and C2 is clustering key
+
+    Primary key((C1, C2), C3 . . .)
+        C1, C2 are the compound partioning key and C3 is clustering key
+
+With Clause
+    to specify any property and its value for the defined table. For compressing table data.
+
+Create table keyspace.table
+Drop Table KeyspaceName.TableName
+
+Alter table keyspace.table
+Alter ColumnName TYPE ColumnDataype |
+Add ColumnName ColumnDataType |
+Drop ColumnName |
+Rename ColumnName To NewColumnName |
+With propertyName=PropertyValue
+
+
+Doesn't support aggregation, group_by, having, joins, OR, UNION, INTERSECTION, wildcard
+
+
