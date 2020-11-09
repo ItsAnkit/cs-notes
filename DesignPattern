@@ -1,0 +1,169 @@
+
+++++++++++++++ SOLID +++++++++++++++++++
+
+S - Single class responsibility
+O - open for extension closed for modification
+L - Liskov substitution principle
+    If SC is a subtype of class C, then objects of type C may be replaced with type SC.
+    subclass object can substitute it's base class object while inheriting.
+
+I - Interface segregation
+D - Dependency inversion. High level module must not depend on low level module but on abstractions.
+  As, if we need to change low level module, we need to make changes in high level module which makes use of low level module.
+  Making change violates O part. 
+  solution - Make use of an interface that's used by low levl and high level module and make change in that module.
+
+
+LSP good example - 
+  public class Bird{
+  }
+  public class FlyingBirds extends Bird{
+      public void fly(){}
+  }
+  public class Duck extends FlyingBirds{}
+  public class Ostrich extends Bird{}
+
+  Bird b = Duck.new()
+  FlyingBird fb = Duck.new()
+  Bird b = Ostrich.new()
+  FlyingBird fb = Ostrich.new() #wrong as objects of type C can't be replaced with type SC.
+
+Aggregation -
+HAS-A relationship. weak association
+unidirectional association
+both the entries can survive individually which means ending one entity will not effect the other entity
+
+e = Employee.new()
+b = Bank.new('sbi')
+b.add(e)
+
+Composition - 
+part-of relationship. strong association.
+both the entities are dependent on each other.
+the composed object(vehicle) cannot exist without the other entity.
+Tyre part of Vehicle
+
+t = Tyre.new()
+e = Engine.new()
+v = Vehicle.new(t, e)
+
+
++++++++++++++++  Design Patterns  ++++++++++++++++++
+
+Creational =========> It's about class instantiation. Class-creation patterns use inheritance while object-creation patterns use delegation.
+
+  Abstract Factory ----
+  Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
+  It defines a factory method(AbstractPlatform or AbstractProduct). Factory Method encapsulates the new operator 
+  and the concrete, platform-specific, product classes.
+
+  Ex:
+            -------- Class -------
+                |             |  
+  AbstractPlatform          AbstractProduct
+    |         |               |         |
+  Platform1  Platform2     Product1   Product2
+
+
+  Builder ----
+  Separate the construction of a complex object from its representation so that the same construction process can create different representations.
+  Separate the algorithm for interpreting mechanism from the algorithm for building and representing one.
+
+  Ex: A meal can have few types of veg/non-veg burger + few kinds of beverage + some starter..
+    Here, construction process is same, but diff. o/p.
+
+    Builder hierarchy makes possible the polymorphic creation of many peculiar representations.
+    Reader  ----->    Converter
+                      |       |
+              CSV converter PDF converter
+
+
+  Singleton ----
+  A class of which only a single instance can exist. 
+  Ex: Declare the instance as a private static data member. Provide a public static member function that encapsulates 
+  all initialization code, and provides access to the instance. lazy initialization(creation on first use) in accessor function.
+  
+  Government is a singleton class with The President as the global point of access.
+  Singleton methods in ruby which are methods for a particular object. Class methods are also singleton as they are specific to Class instance of class.
+
+
+  Factory ---
+
+
+
+Structural ===========>  Class and Object composition
+
+  Decorator ---
+  Add responsibilities to objects dynamically or decorating it.
+  Inheritance is not feasible because it is static and applies to an entire class instead apply decoration dynamically.
+  Ex: Base Weapon + weapon accessory => Weapon
+
+
+  Facade ---
+  A single class that represents an entire subsystem. Facade defines a higher-level interface that makes the subsystem easier to use.
+  Subsystem1 and Subsystem3 do not interact with the internal components of Subsystem2. 
+  They use the Subsystem2Wrapper "facade" (i.e. the higher level abstraction).
+
+  Ex: Customer Service Facade
+        |        |       | 
+  Order man.  Billing  Shipping
+
+
+  Proxy ---
+  An object representing another object. A placeholder for another object to control access to it.
+  An extra level of indirection to support distributed, controlled, or intelligent access.
+  Ex: A check is a proxy to transfer money in account.
+  Nginx server
+
+  client --->   Subject
+                   |
+               -----------            
+              |           |
+            Proxy  -->  RealSubject
+
+
+  Bridge ----
+  Decouple an abstraction from its implementation so that the two can vary independently.
+  Publish interface in an inheritance hierarchy, and bury implementation in its own inheritance hierarchy.
+  Ex:
+    Switch --->  Switch  Implementation
+                  |            |  
+            Light switch    TV switch
+
+            
+
+  Adapter ----
+  Convert the interface of a class into another interface clients expect. Adapter lets classes work together 
+  that couldn't otherwise because of incompatible interfaces.
+  Ex: Mutliple Devices  and single switch
+    Add switch board as adapter in between to run multiple devices at same time.
+
+
+
+*** Adapter provides a different interface to its subject. Proxy provides the same interface. Decorator provides an enhanced interface.
+  Adapter makes things work after they're designed; Bridge makes them work before they are.
+
+
+Behavioral ===========> Class's objects communication
+
+  Chain of responsibility
+  A way of passing a request between a chain of objects. Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. 
+  Chain the receiving objects and pass the request along the chain until an object handles it.
+  Ex: ATM while dispatching money.
+    Rs. 3545 ---->    1000  |  500  |  100  |  10  |  5
+    Notes               3       1       5      4      1
+
+
+  Iterator
+  Sequentially access the elements of a collection
+  Ex: channel change in tv.
+
+
+  Observer
+  A way of notifying change to a number of classes.
+  Ex: Auctioneer observes bidding and concludes from bidder number who is bidding.
+  "View" part of Model-View-Controller.
+  Notification trigger system when certain limit is reached.
+
+
+
