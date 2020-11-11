@@ -1,0 +1,17 @@
+
+CI - trigger build, 
+  test build(success/ fail)
+  trigger tests (success/fail)
+
+continuous delivery - 
+ CI success  -->  Automatically deliver to UAT  -->  Push a button manually to trigger deployment  -->  Automatically deploy to prod as official release  
+
+continuous deployment -
+  CI success  -->  Automatically deliver to UAT                  -->                                    Automatically deploy to prodas official release
+
+
+UAT - 
+It is a type of testing performed by end user or client to verify/accept the final build for production release. It is done after functional, intergration and system tetsing is done.
+
+Capybara and Rspec - for acceptance testing. It test the application from the perspective of a human client. The test code walks through a user’s browser interactions.
+
