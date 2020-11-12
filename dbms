@@ -1,0 +1,156 @@
+
+
+To Do:
+  coalesce
+  trigger
+  check
+  Indexing and Normalization
+
+Notes:
+
+Cursor - Allows traversal of records. Facilitates processing after traversal such as retrieval, addition and deletion of records.
+
+into operator for copying records from one table to another
+
+Collation - Rules for different types of sensitivity. (Case, Accent, Kana and Widht sensitivity)
+Stored Procedure - stored subroutine. Can be used to fetch records for users who don't have access to DB.
+
+OLTP and OLAP systems.
+
+
+Aggregate fns -  perform operation on a column
+Scalar fns - perform operation on single record ex: UCASE, LCASE
+
+
+======== Indexing =============================
+Helps you reduce total no.of I/O operations
+
++++++ Primary indexing - Sparse, dense indexing
+
+++++ Secondry indexing - Bank with multiple branch where each branch can have same account number
+
+++++ Clustered index - column or group of columns is used as index. Cluster of different semester students. Defined on ordered data file
+
+++++ multilevel index
+  Used when primary index doesn't fit
+
+++++ b-tree index - another kind of multilevel index. All leaf nodes of b tree signify actual data pointers and they are interlinked with linked list
+
+
+
+========  Write heavy db ==========
+use mongodb for consistency
+
+For read heavy, we can add redis or elasticsearch in front of mongodb to help faster reading.
+
+
+
+
+
+============   Graph databse ========
+Store relationships along data rather than computing relationships at query time through expensive join operations
+Excel at managing highly connected data and complex queries
+Components - 
+  Nodes - can have properties(key/value pairs)
+  Relationships - can have properties(key/value pairs) as well as relationships like WORKS_FOR
+
+Graph databases have advantages for use cases such as social networking, recommendation engines, and fraud detection, 
+  when you need to create relationships between data and quickly query these relationships.
+
+
+
+============ MySql ======== 
+Relational based Database
+ACID compliant only when using InnoDB and NDB cluster engines or storage engines
+CASCADE not supported
+Truncate isn't transaction safe
+
+does not support partial, bitmap and expression indexes.
+Standard data types.
+limited MVCC support
+
+
+============ Postgresql =====
+object based relational DBMS
+ACID compliance
+CASCADE supported to drop table's dependent objects i.e.n table and views
+
+Truncate is transaction safe i.e., can be rollbacked.
+Support all of these indexes(mysql 4th point)
+Supports FULL OUTER JOIN, INTERSECT AND EXCEPT which mysql doesn't
+Advanced data types like hstore, arrays and user defined types.
+Full MVCC support
+advanced Security features.
+
+
+
+Object based RDBMS (Postgresql)
+  Supports OOPS features like table inheritance and function overloading
+
+
+++++++++++++++++++++++        understand mvcc and locking mechanism
+
+In Concurrency Control theory, there are two ways you can deal with conflicts:
+
+You can avoid them, by employing a pessimistic locking mechanism (e.g. Read/Write locks, Two-Phase Locking)
+You can allow conflicts to occur, but you need to detect them using an optimistic locking mechanism (e.g. logical clock, MVCC)
+
+
++++++++++++++++++ locks +++++++++++++++++++++++++
+
+>>> Shared lock - Read only lock. In this data can be shared b/w transactions for reading, but they can't update
+
+>>> Exclusive lock - Read as well as Write only lock. Can be used by only one transaction at a time.
+
+>>> Multi-Version Concurrency Control (MVCC) - to maintain data consistency.
+    Advantages : Writers don't block readers
+                 Readers don't block writers
+    MVCC is an implementation mechanism used by database engines, caches etc to provide isolated reads without being blocked by writes.
+    https://stackoverflow.com/questions/5751271/optimistic-vs-multi-version-concurrency-control-differences
+
++++++++++++++++++ Optimistic locking +++++++++++++
+
+It is a strategy where you read a record, take note of a version number and check whether version number hasn't changed before you write the record. 
+If record is dirty, you abort the transaction and the user can restart it.
+Use it when you don't expect many collisions as with more collisions you will have to pay higher price for aborting transaction.
+
+Use case - For article editing in wikipedia (As multiple people working on same thing, it's better not to be exclusive)
+Optimistic lock is better for distributed systems as they are concurrent.
+It's better if fewer conflicts. Ex. If lot of people trying to update wikipedia article, then optimistic is not good idea.
+
++++++++++++++++ Pessimistic locking +++++++++++++++
+You lock the record for exclusive use until you have finished with it.
+Used when a collision is anticipated.
+They can have deadlocks
+
+Use case - For Database updation
+Better if there are more conflicts.
+
+
+
+No Sql +++++++++++++++++++
+pros
+  Insertion and Retrieval of whole block of data.
+  Joins are expensive
+  Schema is easily changeable i.e., adding columns
+  horizontal partioning is inbuilt i.e., scalability
+  Built for aggregation/intelligent data.
+
+cons - 
+  not for updates as schema is different across documents, consistency problem across documents
+  read time are slow if consistency is given priority
+  relations are not implicit
+  joins are hard as we need to go through all records in both documents as there is no foreign key relation
+
+
+
+Multi level sharding if there is more load on some node
+Storing copy of data in next node
+
+Quorum is distributed consensus of nodes whether to return result or not based on min. agreeing nodes i.e, quorum
+Quorum is number of nodes agreement for a query result if less number of nodes agree, db fail the query
+
++++++++++  LiveLock  +++++++++++++++
+A livelock on the other hand is almost similar to a deadlock, except that the states of the processes involved in
+a livelock constantly keep on changing with regard to one another i.e, (running concurrenly) but none progressing. 
+
