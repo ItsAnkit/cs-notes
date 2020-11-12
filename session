@@ -1,0 +1,13 @@
+if your website is served by multiple web servers which sit behind a load balancer, the load balancer decides which actual (physical) web-server should each request go to.
+For example, if there are 3 web servers A, B and C behind the load balancer, it is possible that www.mywebsite.com/index.jsp is served from server A, www.mywebsite.com/login.jsp is served from server B and
+www.mywebsite.com/accoutdetails.php are served from server C.
+
+If the load balancer is instructed to use sticky sessions, all of your interactions will happen with the same physical server, even though other servers are present. 
+Thus, your session object will be the same throughout your entire interaction with this website.
+
+The key to managing sticky sessions is to determine how long your load balancer should consistently route the user's request to the same instance. If your application has its own session cookie, 
+then you can configure Elastic Load Balancing so that the session cookie follows the duration specified by the application's session cookie. If your application does not have its own session cookie, 
+then you can configure Elastic Load Balancing to create a session cookie by specifying your own stickiness duration.
+
+
+
