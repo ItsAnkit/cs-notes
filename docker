@@ -1,0 +1,47 @@
+Container - 
+   This is a process running on top of the Linux kernel. It is allocated its own resources: CPU, memory, and filesystem.
+   image becomes container when write functionality is added to it.
+
+
+Docker containers share your host’s kernel, and isolation is done using cgroups and other linux kernel libraries.
+
+
+Securing containers - 
+Don’t run containers with root level access
+Don’t store credentials within the container.
+Check and manage runtime privilege and Linux capabilities
+Use security tools.
+Consider private registries
+
+
+Optimizing Your Docker Environment -
+CPU Share Constraint.
+Block IO bandwidth (Blkio) constraint. 
+Constrain Memory Usage.
+
+Beware of -
+latest tag
+commit command
+
+
+
+________________________________________________________________________________________________________________
+
+Webhook, Client is not requester but a passive receiver
+
+SendGrid uses webhooks to send event data updates to subscribing clients, alerting them to changes to a large number of variables.
+
+RPC
+
+gRPC -lightweight system for requesting data
+
+Multi-client web application to simulate "Tail -f <filename>"
+3. A standalone application which gets the screenshot and the URL of the last opened web page in the currently running browser instance. The screenshot should the full web page and not just what is shown on the screen i.e. its a web page shot.  
+
+
+________________________________________________________________________________________________________________
+
+----  Agile  ----
+Agile team delivers in small but frequent increments rather than a big product launch
+They respond and adapt to market changes and customer feedback.
+Each team has their own standards.
