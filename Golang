@@ -1,0 +1,18 @@
+Golang - 
+
++++++++++++  Go.mod  +++++++++++++  (Gemfile)
+It is a dependency versioning and dependency Management Tool.
+It helps us make use of go modules outside GOPATH.
+
+Initialize Go Modules... 
+    go modules init /path/to/directory
+
+After running go build, a file named go.sum gets created. go build install required dependencies
+
++++++++++  go.sum  +++++++++   (Gemfile.lock)
+    It keeps track of which codebase of package we are using.
+
+
+>>>> go mod tidy : 
+    This command allows you to fetch all the dependencies that you need for testing in your module.
+    
