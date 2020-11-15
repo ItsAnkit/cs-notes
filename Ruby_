@@ -1,3 +1,15 @@
+
+git fetch origin some-branch
+git reset --hard FETCH_HEAD
+
+nlogn < n^(3/2) < n^ logn < 2^n
+
+FastCGI is an improvement on the way CGI processes are handled - put in a super simple way a FastCGI process stays loaded in the memory for a longer time so that it can process multiple requests while it's loaded in the memory. 
+Obviously that works more efficiently since the time & resources lost in loading the basic CGI environment never does happen that frequently in FastCGI processes
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
 It uses  MRI as interpreter
 
 Incremental Garbage collection - 
@@ -15,14 +27,11 @@ I want intelligent code-splitting features such as dynamic imports and webpack's
 
 https://rossta.net/blog/why-does-rails-install-both-webpacker-and-sprockets.html
 
-joins - inner join
-includes - left outer join
 
++++++++++++++++    Ruby/ Rails    +++++++++++++++ 
 
+Ruby on Rails has a built-in filter for special SQL characters, which will escape ‘ , “ , NULL character and line breaks. Using Model.find(id) or Model.find_by_some thing(something)automatically applies this countermeasure.
 
-
-
-Ruby/ Rails
 
 TDD - test cases, then code
 
@@ -59,6 +68,7 @@ fibo one liner
 
 f = lambda { |x| x < 2 ? x : f.call(x-1) + f.call(x-2) }
 n.times.each_with_object([0,1]) { |num, obj| obj << obj[-2] + obj[-1] }
+
 _______________________________________________________
 def fibonacci(n)
    n <= 1 ? n :  fibonacci( n - 1 ) + fibonacci( n - 2 ) 
