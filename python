@@ -45,3 +45,9 @@ Generators --
 **kwargs ---
   pass variable length keyworded argument. It is actually a dictionary.
 
+
+TensorFlow - 
+  Based on execution of data flow graph, where node is mathematical operation and edge, a multidimensional array tensor...
+  Works with CPU, GPU and distributed processing.
+  Computations are run after creation of session
+
