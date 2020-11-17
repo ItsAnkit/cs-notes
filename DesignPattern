@@ -135,7 +135,7 @@ Structural ===========>  Class and Object composition
   Adapter ----
   Convert the interface of a class into another interface clients expect. Adapter lets classes work together 
   that couldn't otherwise because of incompatible interfaces.
-  Ex: Mutliple Devices  and single switch
+  Ex: Mutliple Devices and single switch
     Add switch board as adapter in between to run multiple devices at same time.
 
 

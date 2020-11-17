@@ -73,10 +73,11 @@ Ways for Registry -
 
 InterService Communication - 
 
-	Syncronous communication - Communicating updates to other microservices.
+	Syncronous communication - Communicating updates to other microservices. Ex: using REST, gRPC
 						AG ---> M1 ---> M2
 
-	Asynchronous communication - Communicating using queues to other services asynchronously.
+	Asynchronous communication(Event/Message Driven) - Communicating using queues to other services asynchronously. Use pub/sub pattern. Ex: using Kafka
+
 			AG  |---|  M1 	 |---|  M2
 					   |__   |---|  M3
 		More faster and no need for service discovery.
