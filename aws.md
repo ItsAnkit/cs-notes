@@ -4,6 +4,12 @@ https://www.youtube.com/watch?v=9IyMDLPTmlI
 Memcached
 cdn
 
+============ Amazon RedShift  =========
+Is a fully-managed petabyte-scale cloud based data warehouse product designed for large scale data set storage and analysis. 
+It is also used to perform large scale database migrations.
+Each Redshift cluster runs its own Redshift engine and contains at least one database.
+Redshift is Amazon’s analytics database, and is designed to crunch large amounts of data as a data warehouse
+
 
 ============= Amazon RDS =================
 Setup operate and scale a relational database
