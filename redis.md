@@ -1,4 +1,15 @@
-+++++++++++     Redis    +++++++++++++
+#### Launch Redis on computer start
+    ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+
+#### Start Redis server via “launchctl” for launched daemons
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+
+#### redis commands
+     brew services stop redis
+     brew services start redis
+
+
+## Redis
 
 Redis is a TCP server using client-server model
 

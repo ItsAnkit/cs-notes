@@ -15,10 +15,10 @@ Code understanding is difficult.
 
 Cons - 
 
-	  Interprocess communication
-	  Transactions are distributed like two phased commit, saga
-	  more resources
-	  debugging issues.
+	Interprocess communication
+	Transactions are distributed like two phased commit, saga
+	more resources
+	debugging issues.
 
 
 Scaling ways - 
@@ -81,11 +81,3 @@ InterService Communication -
 			AG  |---|  M1 	 |---|  M2
 					   |__   |---|  M3
 		More faster and no need for service discovery.
-
-
-
-
-
-
-
-

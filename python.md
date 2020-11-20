@@ -3,6 +3,11 @@ python is strongly and dynamically typed.
 JS i weakly typed as it allows type-coercion like "1" + 2 => "12"
 
 
+__name__ is a built-in variable which evaluates to the name of the current module. 
+If the source file is executed as the main program, the interpreter sets the __name__ variable to have a value “__main__”. If this file is being imported from another module, __name__ will be set to the module’s name.
+It can be used to check whether the current script is being run on its own or being imported somewhere else
+
+
 Memory management ++++++++++++
   Memory allocatd in the form of private heap space.
   in-built garbage collection 
