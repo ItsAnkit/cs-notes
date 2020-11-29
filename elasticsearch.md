@@ -6,6 +6,14 @@
     DB   --> Table -->   Rows    --> Cols
     Mapping is schema of ElasticSearch.
 
+#### Inverted Index
+    It uses a data structure called an inverted index, which is designed to allow very fast full-text searches. An inverted index lists every unique word that appears in any document and identifies all of the documents each word occurs in.
+    During the indexing process, Elasticsearch stores documents and builds an inverted index to make the document data searchable in near real-time. 
+    Ex:
+	Token  |  Documents
+	Mike      3, 4
+	Picture   3
+
 
 #### Elasticsearch::Model::Callbacks
     Ensures elastic search indexes are updated when model is created or updated.
@@ -26,7 +34,8 @@
     No internal security
     Limited support for advanced computation in DB.
     Data availability is weak.
-    not durable as backups are not high priority
+    not durable as backups are not high priority.
+    If your application needs to update records frequently, then Elasticsearch may not be the right technology to use
 
 #### Reserved Fields in document
     _index

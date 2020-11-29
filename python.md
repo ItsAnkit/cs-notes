@@ -1,6 +1,5 @@
 
-python is strongly and dynamically typed.
-JS i weakly typed as it allows type-coercion like "1" + 2 => "12"
+``Python is strongly and dynamically typed. JS is weakly typed as it allows type-coercion like "1" + 2 => "12"``
 
 
 __name__ is a built-in variable which evaluates to the name of the current module. 
@@ -8,17 +7,17 @@ If the source file is executed as the main program, the interpreter sets the __n
 It can be used to check whether the current script is being run on its own or being imported somewhere else
 
 
-Memory management ++++++++++++
+#### Memory management
   Memory allocatd in the form of private heap space.
-  in-built garbage collection 
+  In-built garbage collection 
 
-Gobal namespace -
+#### Gobal namespace
   for imported packages. Ex: import sys
 
-Build-in namespace -
+#### Build-in namespace
   Builtin functions of core python and built-in names for various types of exceptions.
 
-Decorators - 
+#### Decorators
   They add functionality to an existing function without chnaging the struture of function itself.
   besides adding functionality to the output of the method, they can even accept arguments for functions
   and can further modify those arguments before passing it to the function itself.
