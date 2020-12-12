@@ -18,5 +18,8 @@ A GraphQL type consists of fields and arguments. It defines following types:
 
 * Other types include Union, List, Non-Null, and Interface.
 
+>>> Subscription
+    Sends changes to clients in real-time
+
 >>> GraphQL::Schema::Resolver 
 	class is a container that can hold logic belonging to a field

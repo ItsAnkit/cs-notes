@@ -6,6 +6,9 @@
     DB   --> Table -->   Rows    --> Cols
     Mapping is schema of ElasticSearch.
 
+    Numeric and geo fields are stored in BKD trees
+    It searches syncronously but you can also use async search for long running searches.
+
 #### Inverted Index
     It uses a data structure called an inverted index, which is designed to allow very fast full-text searches. An inverted index lists every unique word that appears in any document and identifies all of the documents each word occurs in.
     During the indexing process, Elasticsearch stores documents and builds an inverted index to make the document data searchable in near real-time. 
@@ -59,6 +62,48 @@
     Client node   --- Data o/p --->  Data Nodes
         | 
         |---------- Add/Remove --->  Master Nodes
+
+#### match query(Full Text)
+    Full Text to search analyzed text fields.
+	POST employees/_search
+	{
+ 	    “query”: {
+	        “match”: {
+ 	            “country”: “China”
+ 	        }
+ 	    }
+    }
+
+#### range query(Term Level)
+    Term level queries match the exact terms stored in a field.
+    POST employees/_search
+    {
+        "query": {
+            "range": {
+                "salary": {
+                    "gte": 500000
+                }
+            }
+        }
+    }
+
+#### bool query(Compound Query)
+    For combining leaf queries.
+    POST _search
+    {
+        "query": {
+            "bool": {
+                "must": [...],
+                "filter": [...],
+                "must_not": [...],
+                "should": [...]
+            }
+        }
+    }
+
+#### _score is computed based on following context
+    Query Context
+    Filter Context
 
 #### Create a document for an index and type
     POST localhost:9200/index/type/
