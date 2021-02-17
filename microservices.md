@@ -56,6 +56,15 @@
 		Added latency because of mediator i.e, Gateway
 		More complex and extra resource.
 
+#### Service Mesh
+	 It takes the logic governing service-to-service communication out of individual services and abstracts it to a layer of infrastructure(n/w proxies). Service Mesh proxy takes care of following thing during interservice comm. - 
+	 Load Balance, Service Discovery, Metrics, Retries, Circuit Breaking and Timeout.
+
+	 In a service mesh, requests are routed between microservices through proxies in their own infrastructure layer. For this reason, individual proxies that make up a service mesh are sometimes called “sidecars,” since they run alongside each service, rather than within them. Taken together, these “sidecar” proxies—decoupled from each service—form a mesh network.
+
+	 Ex : 
+	 Service1 --->   Service1_Mesh ---> Service2_Mesh ----> Service2
+
 
 #### Service Registry
 	To keep track of network address details of all services for communication b/w gateway and services or inter-services
@@ -107,3 +116,10 @@
 	Solution - 
 	A service client should invoke a remote service via a proxy that functions in a similar fashion to an electrical circuit breaker. When the number of consecutive failures crosses a threshold, the circuit breaker trips, and for the duration of a timeout period all attempts to invoke the remote service will fail immediately. After the timeout expires the circuit breaker allows a limited number of test requests to pass through. If those requests succeed the circuit breaker resumes normal operation. Otherwise, if there is a failure the timeout period begins again.
 
+#### Health Check
+	A service has an health check API endpoint (e.g. HTTP /health) that returns the health of the service. The API endpoint handler performs various checks, such as -
+	Status of the connections to the infrastructure services used by the service instance
+	Status of the host, e.g. disk space
+	Application specific logic
+	
+	A health check client - a monitoring service, service registry or load balancer - periodically invokes the endpoint to check the health of the service instance.
